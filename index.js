@@ -93,8 +93,6 @@
 
 // <-------------------><------------------><------------->------------><-----------------><----------------><-------->
 
-
-
 // Q.4
 
 // What does destructuring do exactly. When would you use it.
@@ -142,3 +140,64 @@
 // console.log(obj1.key1, obj1.key3)
 
 //OUTPUT: SyntaxError - Identifier 'key1' and 'key2' already declared
+
+// <-------------------><------------------><------------->------------><-----------------><----------------><-------->
+
+// Q.5
+
+// What will be the output of this
+
+// 1) console.log('a');
+
+// console.log('b');
+
+// setTimeout(() => console.log('c'), 3000)
+
+// console.log('d');
+
+//OUTPUT : a b d c
+
+// 2) console.log('a');
+
+// console.log('b');
+
+// setTimeout(() => console.log('c'), 3000)
+
+// setTimeout(() => console.log('d'), 0)
+
+// console.log('e');
+
+//OUTPUT:a b e d c
+
+// Challenge
+
+// Can you make the above code print in the following sequence using promises and async/await.
+//  Write the code and paste it here
+
+function printC() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("c");
+    }, 3000);
+  });
+}
+
+function printD() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("d");
+    }, 0);
+  });
+}
+
+async function printLetters() {
+  console.log("a");
+  console.log("b");
+  let c = await printC();
+  console.log(c);
+  let d = await printD();
+  console.log(d);
+  console.log("e");
+}
+
+printLetters();
