@@ -174,30 +174,102 @@
 // Can you make the above code print in the following sequence using promises and async/await.
 //  Write the code and paste it here
 
-function printC() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("c");
-    }, 3000);
-  });
-}
+// function printC() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("c");
+//     }, 3000);
+//   });
+// }
 
-function printD() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("d");
-    }, 0);
-  });
-}
+// function printD() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("d");
+//     }, 0);
+//   });
+// }
 
-async function printLetters() {
-  console.log("a");
-  console.log("b");
-  let c = await printC();
-  console.log(c);
-  let d = await printD();
-  console.log(d);
-  console.log("e");
-}
+// async function printLetters() {
+//   console.log("a");
+//   console.log("b");
+//   let c = await printC();
+//   console.log(c);
+//   let d = await printD();
+//   console.log(d);
+//   console.log("e");
+// }
 
-printLetters();
+// printLetters();
+
+// <-------------------><------------------><------------->------------><-----------------><----------------><-------->
+
+// Q.6
+
+//1.Explain how does the internet work in your own words.
+//Answer : The internet is a global network of interconnected computers and devices,
+// each assigned a unique IP address.
+//The client(browser) request the data to the server by typing URL in search box.
+//This Url having a domain server return the IP address of the actual server this server return the response
+//to the client in the form of html pages.
+//data are transfer in the form of packets.
+
+//2.What are the core modules of node js?
+//Answer :fs (file system), http, https, os, path, url,querystring
+
+//3.Explain the use of each one of them in detail.
+
+//fs(file system) : This module allows us to interact with the file system, we can read from and write to files, create directories,
+//and manage file operations.
+
+//http :  provides the necessary functionality to create a web server, handle HTTP requests, and send HTTP responses.
+// we can use this module to build web applications and APIs.
+
+//https: Similar to the http module, the https module allows us to create secure
+// HTTP servers using SSL/TLS for encrypted communication.
+
+//os : we can use the os module to gather information about the host operating system,
+// such as CPU architecture, memory, and network interfaces.
+
+//path : The path module helps in working with file and directory paths, making it easier to handle file and directory
+// operations in a cross-platform way.
+
+//url : This module is used to parse and manipulate URLs, making it useful for dealing with
+// URL components like query parameters, hostnames, and paths.
+
+//4.What are relative path and absolute path? How to define them?
+
+//Answer : Relative Path:  A relative path specifies the location of a file or directory in relation to
+// the current working directory or another reference point.It is typically shorter and more concise,
+//as it doesn't specify the full path from the root of the file system.
+// Relative paths are useful when we want to refer to files or directories within the
+//same directory or within a known folder structure.
+//Ex: images/pic.jpg
+
+//Absolute Path: An absolute path provides the full, unambiguous location of a file or directory
+//from the root of the file system (e.g., C:\ on Windows or / on Unix-based systems).
+// It is not dependent on the current working directory and is typically longer and more specific
+// than relative paths.Absolute paths are used when we need to specify a file or directory's exact
+//location in the file system.They are particularly useful when dealing with files and directories
+// located in different parts of the file system.
+
+// Ex : Windows: C:\Users\John\Documents\file.txt
+
+// 5.What does createServer do?
+//Answer : createServer() is method is used to create a HTTP server.
+
+//6.What are anonymous functions?
+//ANswer : function without name is known as anonymous function.
+
+//7.What do you think server.listens exactly do?Why do we need it?
+//Answer : server.listen() method start the server on specified port.
+
+const http = require("http");
+const server = http.createServer((req, res) => {
+  console.log("my name is Pooja");
+  res.end("my name is Pooja");
+});
+
+server.listen(4000, () => {
+  console.log("server is running on port 4000");
+});
