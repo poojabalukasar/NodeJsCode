@@ -3,6 +3,8 @@
 // Q.1
 // console.log("hello world");
 
+// <-------------------><------------------><------------->------------><-----------------><----------------><-------->
+
 //Q.2
 // let productOfTwoNumbers = (num1, num2) => num1 * num2;
 // console.log(productOfTwoNumbers(5, 5));
@@ -23,15 +25,17 @@
 // console.log(student);
 // student.printInfo();
 
+// <-------------------><------------------><------------->------------><-----------------><----------------><-------->
+
 // Q.3
 
-const arr = ["apple", "oranges", " ", "mango", " ", "lemon"];
-console.log(arr);
-const newArr = arr.map((elem) => {
-  return elem === " " ? "empty string" : elem;
-});
+// const arr = ["apple", "oranges", " ", "mango", " ", "lemon"];
+// console.log(arr);
+// const newArr = arr.map((elem) => {
+//   return elem === " " ? "empty string" : elem;
+// });
 
-console.log(newArr);
+// console.log(newArr);
 
 // How is hobbies const and it still doesnt error out
 // when we add new elements to the array as in the video.
@@ -86,3 +90,55 @@ console.log(newArr);
 //OUTPUT :
 // {'key1': 1 , 'key2' : 2}
 // {'key1': 1000 , 'key2' : 2}
+
+// <-------------------><------------------><------------->------------><-----------------><----------------><-------->
+
+
+
+// Q.4
+
+// What does destructuring do exactly. When would you use it.
+// Destructuring feature added in ES6 in js.
+//Destructuring allows us to extract values from an object and arrays and assign them to an variable.
+
+//same use cases of destructurings:
+// 1.Assigning values - we can easily assign object (properties) and arrays element ot an variable values.
+//2.Swapping Variables - we swap two variables without using temporary variable.
+//ex: let a = 10; let b = 20;
+//[a,b] = [b,a];
+
+//3.Extracting Data from APIs - When working with data received from APIs, we can destructure the response
+// to extract the required information.
+
+// What will be the output of the following?
+
+// 1)const obj1 = {'key1': 1, "key2": 2, "key3": 1000}
+
+// const { key1, key3} = { ...obj1}
+
+// console.log(key1, key3)
+
+//OUTPUT: 1,1000
+
+// 2) const arr1 = ['value1', 'value2']
+
+// const [ val1, val2 ] = arr1
+
+// console.log(val1)
+
+// console.log(val2)
+
+//OUTPUT: value1
+//value2
+
+// 3) const obj1 = {'key1': 1, "key2": 2, "key3": 1000}
+
+// let { key1, key3} = obj1
+
+// key1 = 20;
+
+// key3 = 123
+
+// console.log(obj1.key1, obj1.key3)
+
+//OUTPUT: SyntaxError - Identifier 'key1' and 'key2' already declared
