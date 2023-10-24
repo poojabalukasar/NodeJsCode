@@ -264,12 +264,76 @@
 //7.What do you think server.listens exactly do?Why do we need it?
 //Answer : server.listen() method start the server on specified port.
 
+// const http = require("http");
+// const server = http.createServer((req, res) => {
+//   //   console.log("my name is Pooja");
+//   console.log(req);
+//   res.end("my name is Pooja");
+// });
+
+// server.listen(4000, () => {
+//   console.log("server is running on port 4000");
+// });
+
+// <-------------------><------------------><------------->------------><-----------------><----------------><-------->
+
+// Q.7
+
+//1.Explain the nodejs event driven architecture.
+//Answer :In simple, Node.js uses an event-driven architecture, which means that it operates by
+//responding to events, much like how we react to things happening around us.
+// Imagine you're at a coffee shop with a friend, and you're having a conversation.
+//  As you chat, you're both listening for things to react to. When your friend says something interesting or important,
+// you respond to that specific point in the conversation. This is similar to how Node.js works:
+//Node.js is like you and your friend, always listening for events to occur.Events can be things like
+//incoming HTTP requests, data arriving from a database, or a user clicking a button on a website.
+//When an event happens, Node.js "wakes up" and executes a specific piece of code (an event handler)
+// to respond to that event.Once it's done, Node.js goes back to listening for the next event,
+//just like you continue your conversation.This event-driven approach makes Node.js very efficient
+// for handling many tasks simultaneously because it doesn't sit idle waiting for one thing to finish before moving on to the next.
+// Instead, it responds to events as they occur, making it well-suited for tasks like web servers, real-time applications,
+//and other situations where many things happen at once.
+
+//2.How can it basically scale to handle 1000 of requests a sec. What helps node JS
+// even though it is single threaded?
+//Answer : Node.js can efficiently handle thousands of requests per second due to its non-blocking,
+//asynchronous I/O operations, event-driven architecture, and the use event loop.
+
+//3.What does process.exit do?
+//Answer : process.exit() is a method in Node.js that immediately terminates the application(running process),
+// with an optional exit code to indicate the reason for termination.
+
+//4.What does req.url , req.header and req.method contain?
+//Answer :req.url - contain the url path of the client.
+// req.header - contain HTTP headers sent by the client.
+//req.method - contain the HTTP request method used by the client such as GET,POST,PUT,DELETE.
+
+//1.
+
+// const http = require("http");
+// const server = http.createServer((req, res) => {
+//   res.end("Welcome to my Node Js project");
+// });
+
+// server.listen(4000, () => {
+//   console.log("Server is running on port 4000");
+// });
+
+//2.
 const http = require("http");
 const server = http.createServer((req, res) => {
-  console.log("my name is Pooja");
-  res.end("my name is Pooja");
+  //   console.log(req.url);
+  if (req.url === "/home" || req.url === "/") {
+    res.end("Welcome to Home page");
+  } else if (req.url === "/about") {
+    res.end(" Welcome to About Us page");
+  } else if (req.url === "/node") {
+    res.end("Welcome to my Node Js project");
+  } else {
+    res.end(" Page not found");
+  }
 });
 
 server.listen(4000, () => {
-  console.log("server is running on port 4000");
+  console.log("Server is running on port 4000");
 });
